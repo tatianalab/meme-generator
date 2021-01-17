@@ -1,4 +1,5 @@
 import React from 'react'
+import MemeComponent from './MemeComponent'
 
 class MemeGenerator extends React.Component {
   constructor(props){
@@ -38,27 +39,12 @@ class MemeGenerator extends React.Component {
   }
 
   render(){
-    return(
-      <div>
-      <form className="meme-form" onSubmit={this.handleSubmit} >
-        <input type="text"
-               placeholder="Top Text"
-               name="topText"
-               value={this.state.topText}
-               onChange={this.handleChange} />
-        <input type="text"
-               placeholder="Bottom Text"
-               name="bottomText"
-               value={this.state.bottomText}
-               onChange={this.handleChange} />
-        <button>Generate my Meme!</button>
-      </form>
-      <div className="meme">
-      <img src={this.state.rdmImage} alt="random meme" />
-      <h2 className="top">{this.state.topText}</h2>
-      <h2 className="bottom">{this.state.bottomText}</h2>
-      </div>
-      </div>
+    return (
+      <MemeComponent
+        handleChange={this.handleChange}
+        handleSubmit={this.handleSubmit}
+        data={this.state}
+        />
       )
   }
 }
